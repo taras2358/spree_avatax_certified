@@ -117,6 +117,7 @@ module SpreeAvataxCertified
 
       return 'Orig' if inventory_units.blank?
 
+      # What if inventory units have different stock locations?
       stock_loc_id = inventory_units.first.try(:shipment).try(:stock_location_id)
 
       stock_loc_id.nil? ? 'Orig' : "#{stock_loc_id}"
